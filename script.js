@@ -148,7 +148,7 @@ input.addEventListener('keydown', function(event) {
                 </p>`;
                 break;
 
-           case 'memorias':
+          case 'memorias':
             case 'fotos':
                 response = `<p class="highlight">// gerando_galeria_de_memorias.log [54 arquivos encontrados] (Clique na foto para ampliar)</p>`;
                 response += `<div class="photo-grid">`;
@@ -157,7 +157,7 @@ input.addEventListener('keydown', function(event) {
                     response += `
                     <div class="photo-card">
                         <img src="${i}.jpg" 
-                             onerror="if (this.src.endsWith('.jpg')) this.src='${i}.jpeg';" 
+                             onerror="if (this.src.endsWith('.jpg')) { this.src='${i}.jpeg'; } else if (this.src.endsWith('.jpeg')) { this.src='${i}.png'; }" 
                              alt="Memória ${i}" 
                              class="image-placeholder"
                              loading="lazy" 
