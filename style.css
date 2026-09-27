@@ -1,0 +1,226 @@
+:root {
+    --bg-color: #0d0f12;
+    --terminal-bg: #161b22;
+    --text-color: #c9d1d9;
+    --accent-color: #00ff66;
+    --prompt-color: #58a6ff;
+    --border-color: #30363d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Fira Code', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container do Terminal */
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+    height: 85vh;
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Cabeçalho do Terminal estilo Mac/Linux */
+.terminal-header {
+    background-color: #0d1117;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: #8b949e;
+}
+
+/* Área de Saída de Conteúdo */
+.terminal-output {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse; /* Mensagens novas no topo/fluxo dinâmico */
+}
+
+/* Linha de Entrada do Comando */
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #0d1117;
+    border-top: 1px solid var(--border-color);
+}
+
+.prompt {
+    color: var(--prompt-color);
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+#command-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Estilos de Texto e Respostas */
+.highlight {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.command-text {
+    color: var(--prompt-color);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.response-text {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 15px 0;
+}
+
+/* --- Galeria de Fotos e Otimização --- */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.photo-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.photo-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    cursor: pointer;
+}
+
+/* --- Modal / Visualizador de Fotos em Tela Cheia --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 75vh;
+    position: relative;
+}
+
+.modal-content {
+    max-width: 80vw;
+    max-height: 70vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border: 2px solid var(--accent-color);
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.modal-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.modal-btn {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    transition: opacity 0.2s;
+}
+
+.modal-btn:hover {
+    opacity: 0.85;
+}
+
+.modal-btn-close {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}

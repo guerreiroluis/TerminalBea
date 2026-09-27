@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo_Amizade::Bea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <div class="title">terminal::arquivo_amizade.exe</div>
+        </header>
+        
+        <main class="terminal-output" id="output">
+        </main>
+        
+        <footer class="terminal-input-line">
+            <span class="prompt">$bea_guest></span>
+            <input type="text" id="command-input" placeholder="digite 'ajuda'..." autofocus autocomplete="off" spellcheck="false">
+        </footer>
+    </div>
+
+    <!-- SDKs do Firebase (Compat) para Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
