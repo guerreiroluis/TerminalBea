@@ -148,7 +148,7 @@ input.addEventListener('keydown', function(event) {
                 </p>`;
                 break;
 
-            case 'memorias':
+           case 'memorias':
             case 'fotos':
                 response = `<p class="highlight">// gerando_galeria_de_memorias.log [54 arquivos encontrados] (Clique na foto para ampliar)</p>`;
                 response += `<div class="photo-grid">`;
@@ -156,8 +156,8 @@ input.addEventListener('keydown', function(event) {
                 for (let i = 1; i <= TOTAL_FOTOS; i++) {
                     response += `
                     <div class="photo-card">
-                        <img src="Fotosdabibia/${i}.jpg" 
-                             onerror="if (this.src.endsWith('.jpg')) this.src='Fotosdabibia/${i}.jpeg';" 
+                        <img src="${i}.jpg" 
+                             onerror="if (this.src.endsWith('.jpg')) this.src='${i}.jpeg';" 
                              alt="Memória ${i}" 
                              class="image-placeholder"
                              loading="lazy" 
@@ -168,7 +168,7 @@ input.addEventListener('keydown', function(event) {
                 
                 response += `</div>`;
                 break;
-
+                
             case 'cantinho da bea':
             case 'cantinhodabea':
             case 'poemas':
